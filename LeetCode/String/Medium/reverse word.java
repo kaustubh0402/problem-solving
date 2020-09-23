@@ -36,3 +36,38 @@ class Solution {
 // trim for case when thera are more than one space at end
     }
 }
+
+/*
+Without using trim function
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder ans=new StringBuilder();
+        StringBuilder temp=new StringBuilder();
+        int flag=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)!=' ')
+            {
+                temp.append(s.charAt(i));
+                flag=0;
+            }
+            else
+            {
+                if(flag==0)
+                {
+                    if(ans.length()!=0)
+                       ans.insert(0,' ');
+                    ans.insert(0,temp);
+                    temp=new StringBuilder();
+                    
+                } 
+                flag=1;
+            }
+        }
+        if(temp.length()!=0 && ans.length()!=0)
+            ans.insert(0,' ');
+        ans.insert(0,temp);
+        return ans.toString();
+    }
+}
+*/
