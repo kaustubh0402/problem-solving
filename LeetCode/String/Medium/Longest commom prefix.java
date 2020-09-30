@@ -1,5 +1,11 @@
 //https://leetcode.com/problems/longest-common-prefix/
 //problem no : 14
+/*
+Explanation:
+1) find minimum length word(temp) from given list
+2) compare each letter of temp word with respective letters of all other words in list
+   append letter in ans if letter of temp(small length word) found in each word from list
+*/	
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         if(strs.length==0)
