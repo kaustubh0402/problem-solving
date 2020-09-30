@@ -3,7 +3,8 @@
 /*
 Explanation:
 1) create hashmap for all given string containing in given list and integer
-2) Integer is initially 
+2) Integer is initially 1 which indicate version of that file
+    it will increse if same version is found 
 */
 //My solution
 class Solution {
