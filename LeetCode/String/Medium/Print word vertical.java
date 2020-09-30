@@ -32,6 +32,7 @@ class Solution {
         
         int max_index[]=new int[word.size()];
         max_index[word.size()-1]=word.get(word.size()-1).length();
+		//this for loop is just not to use Right trim function
         for(int i=word.size()-2;i>=0;i--)
         {
             max_index[i]=Math.max(max_index[i+1],word.get(i).length());
@@ -45,7 +46,7 @@ class Solution {
             {
                 if(i<word.get(j).length())
                     temp.append(word.get(j).charAt(i));
-                else if(ans.size()<max_index[j])
+                else if(ans.size()<max_index[j]) //condition only for not adding trailing space
                     temp.append(" ");
             }
             ans.add(temp.toString());
