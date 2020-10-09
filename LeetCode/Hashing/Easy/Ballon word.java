@@ -43,3 +43,33 @@ class Solution {
     }
 }
 */
+
+//Messy code/never code like this..
+/*
+class Solution {
+    public int maxNumberOfBalloons(String s) {
+        int freq[]=new int[5];
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='b')
+                freq[0]++;
+            if(s.charAt(i)=='a')
+                freq[1]++;
+            if(s.charAt(i)=='l')
+                freq[2]++;
+            if(s.charAt(i)=='o')
+                freq[3]++;
+            if(s.charAt(i)=='n')
+                freq[4]++;
+        }
+        freq[2]=freq[2]>>1;
+        freq[3]=freq[3]>>1;
+        int ans=Integer.MAX_VALUE;
+        for(int i=0;i<5;i++)
+        {
+            ans=Math.min(ans,freq[i]);
+        }
+        return ans;
+    }
+}
+*/
