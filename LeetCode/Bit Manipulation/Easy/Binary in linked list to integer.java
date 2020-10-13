@@ -7,6 +7,7 @@ class Solution {
         int num = head.val;
         while (head.next != null) {
             num = (num << 1) | head.next.val;
+			// Above is alternative for (num *2) +head.next.val;
             head = head.next;    
         }
         return num;
@@ -44,18 +45,18 @@ class Solution {
 }
 
 //Optimal one loop
-
+//Calculating from MSB
 class Solution {
     public int getDecimalValue(ListNode head) {
         int ans=0;
-        int raise=30;
+        int raise=30; // maximum size of int is 30 given 
         while(head!=null)
         {
             ans=ans+(int)Math.pow(2,raise)*head.val;
             raise--;
             head=head.next;
         }
-        ans=ans>>(raise+1);
+        ans=ans>>(raise+1); (right shift so that we get actual integer)
         return ans;
     }
 }
