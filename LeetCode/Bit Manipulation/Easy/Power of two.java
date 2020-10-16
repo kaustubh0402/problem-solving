@@ -9,6 +9,11 @@ so after performing n&(n-1) we should get 0 as answer if n is power of 2
 as only 1 bit will n and that will unset because above operation
 */
 
+/*
+Here we can also use hashset 
+store all powers of 2 in hashset (31 integers total)
+and check whether number is present in hashset or not
+*/
 
 class Solution {
     public boolean isPowerOfTwo(int n) {
