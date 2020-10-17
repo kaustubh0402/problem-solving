@@ -26,6 +26,11 @@ prefix[5] ^prefix[2] ^arr[2]=eqn(1)   = answre
 so form above we can conclude that 
 answer= prefix[R] ^prefix[L] ^arr[L]
 
+Note :
+We can also do this using O(1) space
+But that will change Given array
+i.e. we can use given arr[] as prefix array by modifying it
+
 */
 
 
