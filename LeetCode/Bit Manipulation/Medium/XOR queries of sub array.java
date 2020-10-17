@@ -34,7 +34,6 @@ i.e. we can use given arr[] as prefix array by modifying it
 */
 
 
-
 class Solution {
     public int[] xorQueries(int[] arr, int[][] queries) {
         int arrayLength=arr.length;
