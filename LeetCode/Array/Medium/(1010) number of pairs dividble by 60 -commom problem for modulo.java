@@ -2,6 +2,13 @@ https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-6
 //problem no : 1010
 
 /*
+1) brute Force: O(n^2)
+   Iterarte over each elements of array
+     check whether sum of current and all next elements are divisnle by 60 or not
+2) using HashMap
+    Statndard HashMap method
+	
+===***Optimal***===
 Hint:
 1.We only need to consider each song length modulo 60.
 2.We can count the number of songs with (length % 60) equal to r, and store that in an array of size 60.
