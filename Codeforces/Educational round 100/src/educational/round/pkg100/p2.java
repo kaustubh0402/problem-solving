@@ -41,7 +41,7 @@ class deploysome
             else
                 fake=(a[i]/num)*num;
             if(fake==0)
-                fake=Math.min(1,num);
+                fake=(num/(num/a[i]));
             if(a[i]%num==0 || num%a[i]==0)
                 fake=a[i];
             System.out.print(fake+" ");
