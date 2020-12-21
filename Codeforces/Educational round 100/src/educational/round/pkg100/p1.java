@@ -31,7 +31,7 @@ class deployp1
     {
         int sum=a+b+c;
         int small=Math.min(a,Math.min(b,c));
-        if(sum>=7 && sum%9==0 && small>(sum/9))
+        if(sum>=7 && sum%9==0 && small>=(sum/9))
             return true;
         return false;
     }
