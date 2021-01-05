@@ -2,9 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-public class p4 {
-    
-    
+public class p2 {
     static class FastReader 
     { 
         BufferedReader br; 
@@ -68,42 +66,45 @@ public class p4 {
            while(t-->0)
            {
            int n=sc.nextInt();
-           int a[]=new int[n];
+           int x=sc.nextInt();
+           ArrayList<Integer> a=new ArrayList<>();
            for(int i=0;i<n;i++)
            {
-               a[i]=sc.nextInt();
+               a.add(sc.nextInt());
            }
-           deployp1 obj=new deployp1();
-           obj.solve(n,a);
+           deployk obj=new deployk();
+           long ans=obj.solve(n,x,a);
+           System.out.println(ans);
            }
   }
-    
 }
-class deployp1
+
+
+class deployk
 {
-    public void solve(int n,int a[])
+    public long solve(int n,int x,ArrayList<Integer>a)
     {
-        Arrays.sort(a);
-        long al=0;
-        for(int i=n-1;i>=0;i--)
+        long sum=0;
+        int i=0;
+        int flag=0;
+        int cnt=0;
+        while(i<a.size())
         {
-            if(((n-i-1)%2)==0)
-            {
-                if((a[i]%2)==0)
-                    al+=a[i];
-            }
-            else
-            {
-                if((a[i]%2)==1)
-                    al-=a[i];
-            }
+           if(a.get(i)%x==0 && flag==0)
+           {
+               a.add(a.get(i)/x);
+           }
+           else
+           {
+               flag=1;
+           }
+           sum+=((a.get(i)*(long)Math.pow(x,cnt)));
+           i++;
+           cnt=(i/(n));
         }
-        if(al>0)
-                System.out.println("Alice");
-        else if(al<0)
-                System.out.println("Bob");
-        else
-                System.out.println("Tie");
+        return sum;
     }
-    
 }
+
+
+

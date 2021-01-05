@@ -68,42 +68,31 @@ public class p4 {
            while(t-->0)
            {
            int n=sc.nextInt();
+           int x=sc.nextInt();
            int a[]=new int[n];
            for(int i=0;i<n;i++)
            {
                a[i]=sc.nextInt();
            }
            deployp1 obj=new deployp1();
-           obj.solve(n,a);
+           obj.solve(n,x,a);
            }
   }
     
 }
 class deployp1
 {
-    public void solve(int n,int a[])
+    public void solve(int n,int x,int a[])
     {
-        Arrays.sort(a);
-        long al=0;
-        for(int i=n-1;i>=0;i--)
+        long sum=0;
+        long max=0;
+        for(int i=0;i<n;i++)
         {
-            if(((n-i-1)%2)==0)
-            {
-                if((a[i]%2)==0)
-                    al+=a[i];
-            }
-            else
-            {
-                if((a[i]%2)==1)
-                    al-=a[i];
-            }
+            sum+=a[i];
+            max+=(long)Math.ceil(a[i]/(x*1.0));
         }
-        if(al>0)
-                System.out.println("Alice");
-        else if(al<0)
-                System.out.println("Bob");
-        else
-                System.out.println("Tie");
+        long mn=(long)Math.ceil(sum/(x*1.0));
+        System.out.println(mn+" "+max);
     }
     
 }
