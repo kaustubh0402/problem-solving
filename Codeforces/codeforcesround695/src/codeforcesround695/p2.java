@@ -115,7 +115,7 @@ class deployk
             }
         }
         del=Math.max(some,del);
-        if(del<=3)
+        if(del<3)
             return count-del;
         return count-3;
     }
