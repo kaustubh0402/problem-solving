@@ -3,8 +3,16 @@ https://leetcode.com/problems/count-sorted-vowel-strings/
 
 /*
 Explanation:
- Think like we can find solution of n=2 from n=1...i.e. using dp
+ Think like we can find solution of n=2 from n=1...
  we can calculate n value from n-1
+ 
+ we will calculate string starting from a,e,i,o,u separately
+ and store value of current count of string starting with a,e,i,o,u for next iteration
+ consider for n=3
+   here suppose we have result of n-1 i.e n=2
+   i.e count of string starting with a,e,i,o,u for n=2 already
+   
+   
  for n=1 answer will be 5 ['a','e','i','o','u']
  for n=2
    consider for 'a' answer will be ['aa','ae','ai','ao','au'] for a, ans=5;
@@ -26,21 +34,28 @@ for n=3
    for n=2 : a=5,e=4,i=3,o=2,u=1;
    total sum=15;
 now for n=3:
-   a=(all strings in (n-1)   
+   a=(all strings in (n-1) i.e total sum )=15
+   b=(all strings in (n-1) except a )=15-5=10
+   and so on
+   .
+   .
+   .   
 */
+
+
 class Solution {
     public int countVowelStrings(int n) {
-        int a=1,b=1,c=1,d=1,e=1;
+        int a=1,e=1,i=1,o=1,u=1;
         int sum=0;
-        for(int i=0;i<n;i++)
+        for(int index=0;index<n;index++)
         {
-            sum=a+b+c+d+e;
+            sum=a+e+i+o+u;
             int temp=sum;
-            e=temp-d-c-b-a;
-            d=e+d;
-            c=d+c;
-            b=c+b;
-            a=b+a;
+            u=temp-o-i-e-a;
+            o=u+o;
+            i=o+i;
+            e=i+e;
+            a=e+a;
         }
         return sum;
     }
