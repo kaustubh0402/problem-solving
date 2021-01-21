@@ -2,6 +2,7 @@ https://leetcode.com/problems/find-the-most-competitive-subsequence/
 //Problem no : 1673
 
 
+
 /*
 My Idea: O(n*k) TLE
 find smallest element in range for every k
@@ -32,4 +33,23 @@ class Solution {
         return ans;
     }
 }
-*/      
+*/  
+
+class Solution {
+    public int[] mostCompetitive(int[] nums, int k) {
+        int n=nums.length;
+        int ans[]=new int[k];
+        Stack<Integer> s=new Stack<Integer>();
+        for(int i=0;i<n;i++)
+        {
+            while(!s.isEmpty() && nums[i]<s.peek() && n-i+s.size()>k)
+                s.pop();
+            if(s.size()<k)
+                s.push(nums[i]);
+        }
+        for(int i=k-1;i>=0;i--)
+            ans[i]=s.pop();
+        return ans;
+    }
+}
+            
