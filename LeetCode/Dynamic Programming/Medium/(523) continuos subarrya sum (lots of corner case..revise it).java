@@ -56,3 +56,32 @@ class Solution {
         return false;
     }
 }
+
+//Trash code of O(n^2)
+class Solution {
+    public boolean checkSubarraySum(int[] nums, int k) {
+        int len=nums.length;
+        int prefix[]=new int[len];
+        prefix[0]=nums[0];
+        int cnt=0;
+        for(int i=1;i<len;i++)
+        {
+            if(nums[i]==0 && nums[i-1]==0)
+               cnt++;
+            prefix[i]=prefix[i-1]+nums[i];
+        }
+        if(cnt>=1)
+            return true;
+        if(k==0)
+            return false;
+        for(int i=0;i<len;i++)
+        {
+            for(int j=i+1;j<len;j++)
+            {
+                if((prefix[j]-prefix[i]+nums[i])!=0 && (prefix[j]-prefix[i]+nums[i]) % k==0)
+                    return true;
+            }
+        }
+        return false;
+    }
+}
