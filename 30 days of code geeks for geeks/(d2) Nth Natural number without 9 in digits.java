@@ -1,3 +1,5 @@
+https://practice.geeksforgeeks.org/problems/nth-natural-number/1
+
 Basically If we remove 9 then our number system will not have any 9
 which further can be concluded that number system with base 9
 Now calculating given decimal number to base 9 number
