@@ -95,7 +95,7 @@ class deployk
             long some=pre[i]-a[i]+ans;
             if((a[i]*100.0/(double)some)<=k)
                 continue;
-            ans+=((a[i]*100.0/(double)k)-(some));
+            ans+=(long)Math.ceil((a[i]*100.0/(double)k)-(some));
         }
         return ans;
     }
