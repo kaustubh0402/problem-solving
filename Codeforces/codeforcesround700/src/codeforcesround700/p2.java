@@ -106,8 +106,6 @@ class deployk
     }
     public boolean solve(int hatt,int hdef,int n,long a[],long b[])
     {
-        long max=0;
-        long val=0;
         monster arr[]=new monster[n];
         for(int i=0;i<n;i++)
         {
