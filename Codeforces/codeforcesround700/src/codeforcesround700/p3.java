@@ -2,7 +2,9 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-public class p3 {
+public class example {
+    
+    
     static class FastReader 
     { 
         BufferedReader br; 
@@ -61,37 +63,44 @@ public class p3 {
     }
     
     public static void main(String[] args) {
-        FastReader sc=new FastReader();
+           FastReader sc=new FastReader();
            int n=sc.nextInt();
-           int a[]=new int[n];
-           for(int i=0;i<n;i++)
-           {
-               a[i]=sc.nextInt();
-           }
-           deploysome obj=new deploysome();
-           int ans=obj.solve(n,a);
-           System.out.println(ans);
-  }
-}
-class deploysome
-{
-    public int solve(int n,int a[])
-    {
-        ArrayList<Integer> one=new ArrayList<>();
-        ArrayList<Integer> two=new ArrayList<>();
-        for(int i=0;i<n;i++)
-        {
-            int curr=a[i];
-            if(one.size()==0)
-                one.add(curr);
-            else if(one.size()!=0 && one.get(one.size()-1)!=curr)
-                one.add(curr);
-            else if(two.size()==0)
-                two.add(curr);
-            else if(two.size()!=0 && two.get(two.size()-1)!=curr)
-                two.add(curr);
-        }
-        return one.size()+two.size();
+		   int start=1,end=n;
+		   int mid=(start+end)/2;
+		   int l,r,val;
+		   while(start<end)
+		   { 
+	          mid=(start+end)/2;
+              System.out.println("? "+mid);
+              System.out.flush();
+              val=sc.nextInt();
+              if(mid==1)
+                l=10000000;
+              else
+              {
+                  System.out.println("? "+(mid-1));
+                  System.out.flush();
+                  l=sc.nextInt();
+              }
+              if(mid==n)
+                r=10000000;
+              else
+              {
+                  System.out.println("? "+(mid+1));
+                  System.out.flush();
+                  r=sc.nextInt();
+              }
+              if(val<Math.min(l,r))
+              {
+                  System.out.println("! "+mid);
+                  System.out.flush();
+                  return;
+              }
+              if(l<r)
+                end=mid-1;
+              else
+                start=mid+1;
+		   }
     }
-    
-}
+  }
+

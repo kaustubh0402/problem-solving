@@ -2,9 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-public class example {
-    
-    
+public class p4 {
     static class FastReader 
     { 
         BufferedReader br; 
@@ -63,28 +61,37 @@ public class example {
     }
     
     public static void main(String[] args) {
-           FastReader sc=new FastReader();
+        FastReader sc=new FastReader();
            int n=sc.nextInt();
            int a[]=new int[n];
            for(int i=0;i<n;i++)
            {
                a[i]=sc.nextInt();
            }
-           deployp1 obj=new deployp1();
-           obj.solve(n,a);
-    }
+           deploysome obj=new deploysome();
+           int ans=obj.solve(n,a);
+           System.out.println(ans);
   }
-
-class deployp1
+}
+class deploysome
 {
-    public void solve(int n,int a[])
+    public int solve(int n,int a[])
     {
-        long sum=0;
+        ArrayList<Integer> one=new ArrayList<>();
+        ArrayList<Integer> two=new ArrayList<>();
         for(int i=0;i<n;i++)
         {
-            sum+=a[i];
+            int curr=a[i];
+            if(one.size()==0)
+                one.add(curr);
+            else if(one.size()!=0 && one.get(one.size()-1)!=curr)
+                one.add(curr);
+            else if(two.size()==0)
+                two.add(curr);
+            else if(two.size()!=0 && two.get(two.size()-1)!=curr)
+                two.add(curr);
         }
-        System.out.println(sum);
+        return one.size()+two.size();
     }
     
 }
