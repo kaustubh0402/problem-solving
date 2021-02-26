@@ -7,6 +7,7 @@ We have to check two condition
 1) If element in pieces is present in array or not
 2) found index of first element of each pieces in an array 
     and check whether all elements in pieces comes in array continuos or not 
+3) Above point ensures that order in pieces should not be distorted
 */
 
 
