@@ -70,3 +70,43 @@ class Solution {
         return ans;
     }
 }
+
+
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        int xor=0;
+        int n=nums.length;
+        int ans[]=new int[2];
+        for(int i=0;i<n;i++)
+            xor=xor^nums[i]^(i+1);
+        int rightmostbit=(xor)& ~(xor-1);
+        int one=0;
+        int two=0;
+        for(int i=0;i<n;i++)
+        {
+            if((rightmostbit &nums[i])!=0)
+                one^=nums[i];
+            else
+                two^=nums[i];
+            if(((i+1)&rightmostbit)!=0)
+                one^=(i+1);
+            else
+                two^=(i+1);
+        }
+        int count=0;
+        for(int i=0;i<n;i++)
+            if(one==nums[i])
+                count++;
+        if(count==2)
+        {
+            ans[0]=one;
+            ans[1]=two;
+        }
+        else
+        {
+            ans[0]=two;
+            ans[1]=one;
+        }
+        return ans;
+    }
+}
