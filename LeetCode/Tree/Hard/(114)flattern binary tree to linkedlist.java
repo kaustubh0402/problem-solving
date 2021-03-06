@@ -80,3 +80,52 @@ class Solution {
         }
     }
 }
+
+//Recursive solution
+
+/*
+
+  1 
+ / \ 
+3  4  
+Let's see what is happening with this code.
+
+Node(4).right = None
+Node(4).left = None
+prev = Node(4)
+
+Node(3).right = Node(4) (prev)
+Node(3).left = None
+prev = Node(3)->Node(4)
+    1
+   /
+  3
+   \
+    4
+
+Node(1).right = prev = Node(3) -> Node(4)
+Node(1).left = None
+prev = Node(1)->Node(3)->Node(4) (Which is the answer)
+1
+ \
+  3
+   \
+    4
+
+The answer use self.prev to recode the ordered tree of the right part of current node.
+Remove the left part of current node
+*/
+
+class Solution {
+    TreeNode prev=null;
+    public void flatten(TreeNode root) {
+        if(root==null)
+            return ;
+        flatten(root.right);
+        flatten(root.left);
+        root.right=prev;
+        root.left=null;
+        prev=root;
+    }
+}
+
