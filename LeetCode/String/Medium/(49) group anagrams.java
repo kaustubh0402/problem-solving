@@ -43,3 +43,24 @@ class Solution {
         return new ArrayList(ans.values());
     }
 }
+
+//gfg efficient solution
+class Solution {
+    public List<List<String>> Anagrams(String[] s) {
+        HashMap<String,List> h=new HashMap<>();
+        int n=s.length;
+        for(int i=0;i<n;i++)
+        {
+            int freq[]=new int[26];
+            for(int j=0;j<s[i].length();j++)
+              freq[s[i].charAt(j)-'a']++;
+            StringBuilder key=new StringBuilder("");
+            for(int j=0;j<26;j++)
+              key.append(freq[j]+"#");
+            if(!h.containsKey(key.toString()))
+              h.put(key.toString(),new ArrayList<>());
+            h.get(key.toString()).add(s[i]);
+        }
+        return new ArrayList(h.values());
+    }
+}
