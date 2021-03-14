@@ -20,6 +20,9 @@ We will use hashset for storing distinct substring of length k/
 if lenght of hashset is 2^k then return true
 
 */
+
+//Can be otimized by using bit set and hashset of integer not string
+//current complexity: O(n)*O(k)
 class Solution {
     public boolean hasAllCodes(String s, int k) {
         int n=s.length();
