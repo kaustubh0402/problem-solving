@@ -38,78 +38,35 @@ class Solution {
         return ans;
     }
 }
-/*
-My Two pointer solution gfg
 
-import java.io.*;
-import java.util.*;
+//My Two pointer solution gfg
 
-class Array {
-
-	public static void main (String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int t = Integer.parseInt(br.readLine().trim()); //Inputting the testcases
-		while(t-->0){
-		    int n = Integer.parseInt(br.readLine().trim());
-		    int arr[] = new int[n];
-		    String inputLine[] = br.readLine().trim().split(" ");
-		    for(int i=0; i<n; i++){
-		        arr[i] = Integer.parseInt(inputLine[i]);
-		    }
-		    
-		    Trap obj = new Trap();
-		    
-		    System.out.println(obj.trappingWater(arr, n));
-		}
-	}
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int trap(final int[] A) {
+        int n=A.length;
+        if(n==0)
+            return 0;
+        int ans=0;
+        int l=0;
+        int lmax=-1;
+        int rmax=-1;
+        int r=n-1;
+        while(l<r)
+        {
+            if(A[l]<A[r])
+            {
+                lmax=Math.max(A[l],lmax);
+                ans+=(lmax-A[l]);
+                l++;
+            }
+            else
+            {
+                rmax=Math.max(A[r],rmax);
+                ans+=(rmax-A[r]);
+                r--;
+            }
+        }
+        return ans;
+    }
 }
-
-// } Driver Code Ends
-
-
-
-
-class Trap{
-    
-    // function to find the trapped water in between buildings
-    // arr: input array
-    // n: size of array
-    static int trappingWater(int arr[], int n) { 
-        
-       int l=0;
-       int r=n-1;
-       int ans=0;
-       int l_max=0,r_max=0;
-       while(l<=r)
-       {
-           if(arr[l]<arr[r])
-           {
-             if(arr[l]>=l_max)
-             {
-                 l_max=arr[l];
-             }
-             else
-             {
-                 ans+=l_max-arr[l];
-             }
-             l++;
-           }
-           else
-           {
-               if(arr[r]>=r_max)
-               {
-                   r_max=arr[r];
-               }
-               else
-               {
-                   ans+=r_max-arr[r];
-               }
-               r--;
-           }
-            
-       }
-       return ans;
-    } 
-}
-
-*/
