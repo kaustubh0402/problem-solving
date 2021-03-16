@@ -1,3 +1,6 @@
+//Only use samll letters  alphabets and space
+//will not work for capital letter and other special symbol except space
+
 import java.util.*;
 
 public class ProductCipher {
