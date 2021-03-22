@@ -76,3 +76,83 @@ class MinStack {
     }
 }
 
+
+/*
+Optimize: O(1) extra space (except one stack )
+O(1) time
+
+idea:
+We required one stack
+and one min varaible to store current elemnt
+
+There are two cases:
+1) push elemnt x is greater than current min
+2) push elemnt x is smaller than current min
+
+1) for case 1 min elemnt will not change so we will push elemnt x as it is
+2) for case 2 min elemnt will change and min will be x 
+   but we have to preserve currnet min i.e stored in min varibale
+	 so we will store previous min in form of something in stack 
+	 Now we will push x+x-min in stack and update min=x
+	 in stack elemnt=2*x-min and new min=x
+	 
+Note : Observe carefully elements present in stack are not actual elemnts
+It is same elemnt as input in stack if x (current elemnt) is grater than min
+In case of x smaller than min modified value is pushed in stack
+
+now how to retrive or pop()??
+
+Again there are two cases:
+One thin we have notice that if currnt top of stack is greater than min 
+then we need not to worry about min as above elemnt is not contributing to min and of case 1 (read note)
+
+In other case: now our min elemnt is top of stack (why?? beacuse in this condition we are changing actual elemnt while pushing in stack)
+we have push let top=2*x-min;  i.e min=2*x-top
+in stack we have top (top elemnt of stack)
+we have store min=x while pushing 
+so while poping we will change min=2*min (as min=x) -top
+
+*/
+
+class MinStack {
+
+    Stack<Long> ans;
+    long min=Integer.MAX_VALUE;
+    public MinStack() {
+        ans=new Stack<>();
+    }
+    
+    public void push(int x) {
+        if(ans.isEmpty())
+        {
+            ans.push((long)x);
+            min=x;
+        }
+        else if(x>=min)
+            ans.push((long)x);
+        else
+        {
+            ans.push((long)x+x-min);
+            min=x;
+        }
+    }
+    
+    public void pop() {
+        if(ans.peek()>=min)
+            ans.pop();
+        else
+        {
+            min=min+min-ans.pop();
+        }
+    }
+    
+    public int top() {
+        if(ans.peek()>min)
+            return (int)(long)ans.peek();
+        return (int)min;
+    }
+    
+    public int getMin() {
+        return (int)min;
+    }
+}
