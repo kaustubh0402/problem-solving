@@ -1,4 +1,5 @@
 https://leetcode.com/problems/minimum-depth-of-binary-tree/
+https://www.interviewbit.com/problems/min-depth-of-binary-tree/
 //Problem no : 111
 
 /*
