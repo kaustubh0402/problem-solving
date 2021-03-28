@@ -20,11 +20,11 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/
  /*
  BFS Solution
  Advantage is no additional 2d arraylist required as we can print immediate result...
- Here in level order traversal main aim is to find gow manyy nodes in Particular level...
+ Here in level order traversal main aim is to find how manyy nodes in Particular level...
  Suppose if it is complete binary tree then nodes in each level=2^level height..
  but in binary tree it is not necessary to be 2^level
  So to find nodes in each level:
-   Before pushing children node of current nodes present in stack we will find stack size 
+   Before pushing children node of current nodes present in Queue we will find Queue size 
    that will be our number of nodes for current level
  
  
